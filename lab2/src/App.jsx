@@ -1,19 +1,17 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { ViewPosts } from "./components/ViewPosts";
 import { AddPost } from "./components/AddPost";
 
 export const App = () => {
   const [posts, setPosts] = useState([]);
 
-  // useEffect(() => {
-  //   axios.get("https://jsonplaceholder.typicode.com/posts").then((result) => {
-  //     setPosts(result.data);
-  //   });
-  // }, [posts]);
+  
 
   const handleDelete = () => {
     setPosts([]);
+  };
+  const oneDelete =() =>{
+    setPosts([...posts]);
   };
 
   const addPost = (newPost) => {
@@ -21,6 +19,7 @@ export const App = () => {
   };
 
   return (
+    <dl>
     <div className="container">
       <div className="row">
         <div className="col-6">
@@ -30,9 +29,11 @@ export const App = () => {
           <ViewPosts
             posts={posts}
             onDelete={handleDelete}
+            oneDelete={oneDelete}
           />
         </div>
       </div>
     </div>
+    </dl>
   );
 };

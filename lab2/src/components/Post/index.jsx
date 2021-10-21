@@ -4,10 +4,14 @@ export const Post = (props) => {
   return (
     <Card>
 
-      <div>
-        <h4>{props.title}</h4>
-        <p>{props.body}</p>
-      </div>
+      <dl>
+        <dt>{props.title}</dt>
+        <dd>{props.body}
+        <button className="btn btn-danger  p-1 m-3" onClick={props.oneDelete}>
+        X
+      </button></dd>
+        
+      </dl>
       
     </Card>
   );

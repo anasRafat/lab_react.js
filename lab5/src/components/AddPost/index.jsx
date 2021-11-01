@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { Input } from "../Input";
+import { usePostNePost } from "../../hooks";
 
 export const AddPost = (props) => {
   const [title, setTitle] = useState("Please enter post title");
   const [body, setBody] = useState("Please enter post body");
+  const NewPost =usePostNePost();
 
   const handleSubmit = () => {
     console.log("Calling to backend service");
     props.addPost({ title, body });
+    console.log(NewPost(body));
   };
 
   return (
